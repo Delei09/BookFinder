@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Style from './Main.module.css'
+import Form from './Form'
+import { checkPropTypes } from 'prop-types'
 
-const Main = ( ) => {
+const Main = ( props ) => {
+
 
     return (
         <main className = {Style.main} >
-            main
+            {props.children}
         </main>
     )
 }

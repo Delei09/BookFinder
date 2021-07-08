@@ -1,0 +1,13 @@
+.main{
+    height: 53.96vh;
+    margin: 30px;
+    background-color: rgb(231, 228, 228);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 30px;
+    gap: 15px;
+    overflow-y: scroll;
+}

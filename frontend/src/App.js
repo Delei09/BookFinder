@@ -1,15 +1,15 @@
-import Header from './components/Header'
-import Main from './components/Main';
-import Footer from './components/Footer';
+
+import Rotas from "./Rotas/Rotas"
+import { BrowserRouter } from 'react-router-dom'
 import './App.css';
 
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Main />
-      <Footer />
+        <BrowserRouter>
+            <Rotas />
+        </BrowserRouter>
     </div>
   );
 }

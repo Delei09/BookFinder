@@ -2,18 +2,19 @@ import React from 'react'
 import Style from './Header.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBookOpen } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
 
 const Header = ( ) => {
 
     return (
         <header className = {Style.header} >
-            <a href = "#" className = {Style.logo} >
+            <Link to = "/" className = {Style.logo} >
                 <FontAwesomeIcon className = "fa-4x" icon = {faBookOpen} />
                 <h1>Book Finder</h1>
-            </a>
+           </Link>
             <div className = {Style.opcao}>
-                <a href =  'home' >Home</a>
-                <a href = 'pesquisar' >Pesquisar</a>
+                <Link to =  '/' >Home</Link>
+                <Link to = 'pesquisar' >Pesquisar</Link>
             </div>
         </header>
     )
