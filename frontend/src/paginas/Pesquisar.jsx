@@ -68,7 +68,7 @@ const Usuario = ( ) => {
                     {!livro && <h6>Pesquisa não encontrada...</h6>}
                 </div>
 
-            {livro  && botao &&<Button submit = {setPesquisar} at = {atual} pagina = {setAtual}  opcao = {botao} />}
+            {livro && botao &&<Button submit = {setPesquisar} at = {atual} pagina = {setAtual}  opcao = {botao} />}
 
             </Main>
             <Footer/>
