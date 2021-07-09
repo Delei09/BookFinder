@@ -8,7 +8,8 @@ const Form = ( {selecionado, texto, submit} ) => {
 
     const [input, setInput] = useState("")
     const [select, setSelect] = useState("")
-    const [botao, setBotao] = useState("")
+    const [botao, setBotao] = useState(1)
+    const [mensagem, setMensagem] = useState("")
 
     function handleInput(e){
         const {value} = e.target
@@ -24,18 +25,23 @@ const Form = ( {selecionado, texto, submit} ) => {
 
     function pesquisar(e){
         e.preventDefault()
-        setBotao("pesquisar ")
-        submit(botao)
-        setBotao("")
+        if(input !== "" && select !== ""){
+            setBotao(botao + 1)
+            submit(botao)
+            setMensagem("")
+        }else{
+            setMensagem("Preencha o formulário*")
+        }
+        
     }
     return (
+        <>
         <form className = {Style.form} onSubmit = {e => pesquisar(e)} >
             <div>
                 <select  value = {select} onChange = {e => handleSelect(e)} >
                     <option disabled value = "" >Selecione</option>
                     <option value = "Titulo" > Titulo</option>
                     <option value = "Autor" > Autor</option>
-                    <option value = "Tema" > Tema</option>
                 </select>
             </div>
             <div className = {Style.input}>
@@ -45,7 +51,10 @@ const Form = ( {selecionado, texto, submit} ) => {
                 </button>
             </div>
            
-        </form>
+        </form> 
+        <h4 className = {Style.h4}> {mensagem && mensagem} </h4>
+    
+    </>
     )
 }
 

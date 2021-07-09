@@ -1,7 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Style from './Main.module.css'
-import Form from './Form'
-import { checkPropTypes } from 'prop-types'
 
 const Main = ( props ) => {
 
