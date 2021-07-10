@@ -7,7 +7,7 @@ const Footer = ( ) => {
 
     return (
         <footer className = {Style.footer} >
-            <h2>Desenvolvido com <FontAwesomeIcon icon = {faHeart}  /> por Vanderlei Lemos</h2>
+            <h2>Book Finder <FontAwesomeIcon icon = {faHeart}  /> </h2>
         </footer>
     )
 }
