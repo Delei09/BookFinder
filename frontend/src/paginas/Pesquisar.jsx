@@ -15,12 +15,14 @@ const Usuario = ( ) => {
     const [livro , setLivro] = useState([])
     const [botao, setBotao] = useState("")
     const [atual , setAtual] = useState(0)
+    const key = "AIzaSyAWkSN8ZKYFSMmvcH540UqM_wh2IcovTDU"
 
     
     useEffect( () => {
-        const ins = input.replace(" ", "")
+        const ins = input.replaceAll(" ", "+")
+        console.log(ins)
         if(select === "Titulo"){
-            const Url = `https://www.googleapis.com/books/v1/volumes?q=${ins}+intitle&filter=full&startIndex=${atual}`;
+            const Url = `https://www.googleapis.com/books/v1/volumes?q=intitle:${ins}&filter=partial&maxResults=12&startIndex=${atual}&key=${key}`;
              axios.get(Url)
               .then(resp => resp.data)
               .then(dados => dados.items)
@@ -31,7 +33,7 @@ const Usuario = ( ) => {
 
         }
         if(select === "Autor"){
-            const Url = `https://www.googleapis.com/books/v1/volumes?q=${ins}+inauthor&filter=full&startIndex=${atual}`;
+            const Url = `https://www.googleapis.com/books/v1/volumes?q=inauthor:${ins}&filter=partial&maxResults=12&startIndex=${atual}&key=${key}`;
             axios.get(Url)
               .then(resp => resp.data)
               .then(dados => dados.items)
@@ -56,11 +58,14 @@ const Usuario = ( ) => {
                         return(
                             <div key = {title} className = {Style.card}>
                                 {thumbnail && <img src = {thumbnail} alt = "imagemLivro" /> }
-                                <div className = {Style.titulo}>
-                                    <h3> {title} </h3>
+                               <div className = {Style.texto}>
+                                  <div className = {Style.titulo}>
+                                        <h3> {title} </h3>
+                                    </div>
+                                    <h4> {authors} </h4>
+                                    <h5> {publishedDate} </h5>
                                 </div>
-                                <h4> {authors} </h4>
-                                <h5> {publishedDate} </h5>
+                               
                             </div>
                         )
 
